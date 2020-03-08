@@ -1,5 +1,9 @@
-.*
-!.gitignore
-cas.log.*
-target/
+.project
+.settings/
+*.classpath
+.*/target/
+*.springBeans
 *.log
+application*.yml
+.idea/*
+*.idea

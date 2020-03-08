@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!-- 引入配置文件 -->
+    <properties resource="generatorConfig.properties"/>
+
+    <context id="MySqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <!-- 保留字添加单引号 -->
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
+        <!-- 分页插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin"/>
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">
+            <property name="targetPackage" value="com.yiyong.subway.dao.example"/>
+        </plugin>
+        <!-- 存在即更新插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.UpsertPlugin">
+            <property name="allowMultiQueries" value="true"/>
+            <property name="allowBatchUpsert" value="true"/>
+        </plugin>
+        <!-- 批量插入插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">
+            <property name="allowMultiQueries" value="false"/>
+        </plugin>
+        <plugin type="com.ezhiyang.cloud.commons.mybatis.generator.plugins.ModelCommentPlugin"/>
+        <plugin type="com.ezhiyang.cloud.commons.mybatis.generator.plugins.ModelColumnPlugin"/>
+        <plugin type="com.ezhiyang.cloud.commons.mybatis.generator.plugins.SelectiveOnlyPlugin"/>
+        <plugin type="com.ezhiyang.cloud.commons.mybatis.generator.plugins.PagingPlugin"/>
+        <plugin type="com.ezhiyang.cloud.commons.mybatis.generator.plugins.OrderByPlugin"/>
+        <plugin type="com.ezhiyang.cloud.commons.mybatis.generator.plugins.GenericExamplePlugin"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${datasource.driverClassName}"
+                        connectionURL="${datasource.url}"
+                        userId="${datasource.username}"
+                        password="${datasource.password}">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.my.project.entity"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.my.project.dao"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="users"
+               domainObjectName="UsersDO"
+               mapperName="UsersMapper">
+        </table>
+
+    </context>
+
+</generatorConfiguration>

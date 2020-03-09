@@ -50,7 +50,7 @@ public class UserUsernamePasswordAuthenticationHandler extends AbstractUsernameP
             logger.error(e.getMessage(), e);
             throw new FailedLoginException(e.getMessage());
         }
-        SimplePrincipal principal = new SimplePrincipal(users.getId().toString());
+        SimplePrincipal principal = new SimplePrincipal(users.getUserName());
         return createHandlerResult(usernamePasswordCredential, principal, null);
     }
 }

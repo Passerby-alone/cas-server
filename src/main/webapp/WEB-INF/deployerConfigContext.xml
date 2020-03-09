@@ -108,6 +108,15 @@
     <bean id="primaryAuthenticationHandler" class="com.my.project.auth.UserUsernamePasswordAuthenticationHandler">
     </bean>
 
+    <!--<bean id="primaryAuthenticationHandler"-->
+          <!--class="org.jasig.cas.authentication.AcceptUsersAuthenticationHandler">-->
+        <!--<property name="users">-->
+            <!--<map>-->
+                <!--<entry key="casuser" value="Mellon"/>-->
+            <!--</map>-->
+        <!--</property>-->
+    <!--</bean>-->
+
     <!-- Required for proxy ticket mechanism -->
     <bean id="proxyPrincipalResolver"
           class="org.jasig.cas.authentication.principal.BasicPrincipalResolver" />

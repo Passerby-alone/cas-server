@@ -1,9 +1,7 @@
 .project
 .settings/
 *.classpath
-cas-server/target/
-*.springBeans
+target/
 *.log
-application*.yml
 .idea/*
 *.idea

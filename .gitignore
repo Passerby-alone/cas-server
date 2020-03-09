@@ -1,7 +1,7 @@
 .project
 .settings/
 *.classpath
-.*/target/
+cas-server/target/
 *.springBeans
 *.log
 application*.yml
